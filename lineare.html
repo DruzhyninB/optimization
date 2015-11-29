@@ -1,20 +1,23 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Optimization</title>
-	<meta charset="utf-8" />
+    <title>Linear function</title>
+    <meta charset="utf-8" />
     <link rel="icon" type="image/x-icon" href="https://pp.vk.me/c629330/v629330601/1febc/RCYcBn9wgPU.jpg" />
     <link href="stylesheets/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
     <div class="infopole">
-        <input type="text" id="func" placeholder="X^2"  disabled/>
-        <input type="text" id="acc" placeholder="e - accuracy <0.1"/>
+        <span class="title">F<sub>n</sub>(x)=a1*x^p1+a2*x^p2+a3*x^p3...an*x^pn + c</span>
+        <input type="text" id="count" placeholder="Max power of func" />
         <button class="function-go" id="go">Calc</button>
         <div class="display-info" id="console"></div>
     </div>
+    <div id="result">
+
+    </div>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="js/pohidna.js"></script>
+    <script src="js/lineareFunction.js"></script>
 </body>
 </html>
