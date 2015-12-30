@@ -1,15 +1,68 @@
-﻿html,body {
-    height:100%;
+﻿body{overflow-y:scroll;}
+@font-face {
+    font-family: 'Pixel Font';
+    src: url('../font/iFlash 501.ttf') format('truetype');
 }
-.display-info{
+.errorPop{
+        width: 70%;
+    height: 70px;
+    position: fixed;
+    bottom: 35px;
+    background-color: rgba(0,0,0,.4);
+    left: 50%;
+    line-height: 70px;
+    z-index: 1;
+    text-align: center;
+    -webkit-transform:translateX(-50%);
+    transform: translateX(-50%);
+    display:none;
+}
+.infopole{
+    width: 40%;
+    text-align: center;
+    position: fixed;
+
+}
+.infopole_display-info{
     width:500px;
     height:400px;
     overflow-y:scroll;
     border:1px solid lightgray;
+    margin:auto;
 }
-.title{
+.infopole_title{
     display:block;
     font-family:'Times New Roman', Times, serif;
     font-size:20px;
+    margin: 10px auto;
+    text-align: center;
+}
+.infopole_controlBlock{
+    display:inline;
+    margin: 10px 0;
+}
+.result{}
+#prop-btn{    
+    display: block;
+    margin: 5px auto;
+    width: 80px;
 
+}
+input#c,input#step {
+    display: block;
+    margin: 0 auto 14px;
+}
+hr{    margin-top: 7px;
+    border: 1px dashed;}
+span.step{
+    font-weight:bold;
+}
+.signature{
+position: fixed;
+    bottom: 5px;
+    left: 5px;
+    z-index: 100;
+    font-family: 'Pixel Font';
+    font-size: 26px;
+    text-shadow: 2px 0px 0px purple;
 }
