@@ -12,9 +12,16 @@
         $('#result').html($('#result').html() + str + '<br/>');
     }
     function takeProp() {
-        if ($('#count').val() == '') {
+        $('#console').html('');
+        $('#result').html('');
+        if ($('#count').val() == '') {//enter nothing
             Error('"Max power of func" field is empty, check it again.');
             return false;
+        }
+        if ($('#count').val().match(/^[0-9]+/gm) == null) {//enter not number
+            Error('Sorry, but this is not a number');
+            return false;
+
         }
         count = +$('#count').val();
         for (var i = 1; i < count+1; i++) {
@@ -69,7 +76,10 @@
             write(Fx);
             write('Have segment [ ' + $('#arL').val() + ' , ' + $('#arR').val() + ' ] and Step = ' + $("#step").val());
             //take number of iteration
-            Niteration = (($('#arR').val() - $('#arL').val()) / $("#step").val())+1;
+            Niteration = (($('#arR').val() - $('#arL').val()) / $("#step").val()) + 1;
+            if (getDecimal(Niteration) !== 0) {
+                Niteration = Math.floor(Niteration);
+            }
             write('Number of iteration : ' + Niteration)
             //Descripteion on process
             var dots = [+$('#arL').val()], step = +$("#step").val(), str = 'X<sub>k</sub> =',temp;
@@ -79,7 +89,7 @@
                 str += ' ' + dots[i]+',';
             }
             write(str);
-            write('<hr>')
+            write('<hr>')            
             //begin of algoritm
             var Fopt = fx(dots[0]),xopt = dots[0],Fwork;
             for (var i = 0; i < Niteration; i++) {
@@ -91,7 +101,9 @@
                     xopt = dots[i];
                 }
             }
-            write('Our min value of funcion - F('+xopt+') = '+Fopt)
+            write('Our min value of funcion - F(' + xopt + ') = ' + Fopt);
+            write('<br/>')
+
         }
         function fx(k) {
             var fvalue = 0, a, n,
@@ -103,6 +115,9 @@
             }
             fvalue = fvalue + c;
             return fvalue;
+        }
+        function getDecimal(num) {
+            return num > 0 ? num - Math.floor(num) : Math.ceil(num) - num;
         }
     }
 });
